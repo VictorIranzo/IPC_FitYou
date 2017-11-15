@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.chart.AreaChart?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600.0" minWidth="850.0" prefHeight="600.0" prefWidth="850.0" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.72" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.MainWindowController">
+   <children>
+      <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../images/fityou.png" />
+         </image>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </ImageView>
+      <HBox alignment="CENTER" spacing="10.0">
+         <children>
+            <Label text="Displayed file:" />
+            <ComboBox fx:id="comboBox" prefHeight="25.0" prefWidth="288.0" />
+            <Button fx:id="loadButt" mnemonicParsing="false" onAction="#loadPress" text="Load" />
+            <ProgressBar fx:id="progressBar" prefWidth="200.0" progress="0.0" />
+         </children>
+      </HBox>
+      <TabPane fx:id="tabPane" tabClosingPolicy="UNAVAILABLE">
+        <tabs>
+          <Tab text="Summary">
+               <content>
+                  <GridPane gridLinesVisible="true">
+                    <columnConstraints>
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                      <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints vgrow="SOMETIMES" />
+                      <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                      <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Label text="Start date and time" />
+                        <Label text="Duration (HH:MM:SS)" GridPane.rowIndex="1" />
+                        <Label text="Exercise time (HH:MM:SS)" GridPane.rowIndex="2" />
+                        <Label text="Total distance" GridPane.rowIndex="3" />
+                        <Label text="Accumulated ascendent slope" GridPane.rowIndex="4" />
+                        <Label text="Maximum speed" GridPane.rowIndex="6" />
+                        <Label text="Heart Rate (min, max, average)" GridPane.rowIndex="8" />
+                        <Label text="Maximum pedaling rate" GridPane.rowIndex="9" />
+                        <Label text="Average speed" GridPane.rowIndex="7" />
+                        <Label text="Average pedaling rate" GridPane.rowIndex="10" />
+                        <Label fx:id="startlabel" text="" GridPane.columnIndex="1" />
+                        <Label fx:id="durlabel" text="" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Label fx:id="exerciselabel" text="" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Label fx:id="distancelabel" text="" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label fx:id="slopelabel" text="" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Label fx:id="maxspeedlabel" text="" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                        <Label fx:id="avspeedlabel" text="" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                        <Label fx:id="HRlabel" text="" GridPane.columnIndex="1" GridPane.rowIndex="8" />
+                        <Label fx:id="maxpedallabel" text="" GridPane.columnIndex="1" GridPane.rowIndex="9" />
+                        <Label fx:id="avpedalinglabel" text="" GridPane.columnIndex="1" GridPane.rowIndex="10" />
+                        <Label text="Accumulated descendent slope" GridPane.rowIndex="5" />
+                        <Label fx:id="descendentSlope" text="" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                     </children>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </GridPane>
+               </content>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/sumario.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+          </Tab>
+          <Tab text="Graphics">
+               <content>
+                  <ScrollPane>
+                     <content>
+                        <VBox alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" spacing="5.0">
+                           <children>
+                              <HBox spacing="10.0">
+                                 <children>
+                                    <RadioButton fx:id="RadioDist" mnemonicParsing="false" text="Distance" />
+                                    <RadioButton fx:id="RadioTime" mnemonicParsing="false" text="Time" />
+                                 </children>
+                              </HBox>
+                              <AreaChart fx:id="HeightGraph" createSymbols="false" legendVisible="false" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="790.0" VBox.vgrow="ALWAYS">
+                                <xAxis>
+                                  <NumberAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </AreaChart>
+                              <LineChart id="SpeedGraph" fx:id="SpeedGraph" createSymbols="false" legendVisible="false" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="790.0" stylesheets="@cssfile.css" VBox.vgrow="ALWAYS">
+                                <xAxis>
+                                  <NumberAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </LineChart>
+                              <LineChart id="HRGraph" fx:id="HRGraph" createSymbols="false" legendVisible="false" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="790.0" stylesheets="@cssfile_1.css" VBox.vgrow="ALWAYS">
+                                <xAxis>
+                                  <NumberAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </LineChart>
+                              <LineChart id="PedalingGraph" fx:id="PedalingGraph" createSymbols="false" legendVisible="false" maxWidth="1.7976931348623157E308" prefHeight="200.0" prefWidth="790.0" stylesheets="@cssfile_2.css" VBox.vgrow="ALWAYS">
+                                <xAxis>
+                                  <NumberAxis side="BOTTOM" />
+                                </xAxis>
+                                <yAxis>
+                                  <NumberAxis side="LEFT" />
+                                </yAxis>
+                              </LineChart>
+                           </children>
+                           <padding>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </padding>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+               </content>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/tabla.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+          </Tab>
+            <Tab text="Combination of series">
+               <content>
+                  <VBox>
+                     <children>
+                        <HBox spacing="10.0">
+                           <children>
+                              <CheckBox fx:id="HRCheckBox" mnemonicParsing="false" onAction="#markedHRData" text="Hearth Rate Data" />
+                              <CheckBox fx:id="SpeedCheckBox" mnemonicParsing="false" onAction="#markedSpeedData" text="Speed Data" />
+                              <CheckBox fx:id="PedalingCheckBox" mnemonicParsing="false" onAction="#markedPedalingData" text="Pedaling Data" />
+                              <VBox prefWidth="100.0" />
+                              <RadioButton fx:id="RDis" mnemonicParsing="false" onAction="#pressDis" text="Distance" />
+                              <RadioButton fx:id="Rti" mnemonicParsing="false" onAction="#pressTi" text="Time" />
+                           </children>
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                        </HBox>
+                        <LineChart fx:id="SeriesGraph" createSymbols="false">
+                          <xAxis>
+                            <NumberAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </LineChart>
+                     </children>
+                  </VBox>
+               </content>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/grafico-analisis-de-la-competencia.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Tab>
+            <Tab onSelectionChanged="#selectedHRZ" text="Heart Rate Zones">
+               <content>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <PieChart fx:id="elPieChart" />
+                        <HBox alignment="BOTTOM_RIGHT" spacing="10.0">
+                           <children>
+                              <Label fx:id="YourHRlabel" text="HR" />
+                              <Button mnemonicParsing="false" onAction="#changeHRButton" text="Change" />
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </content>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/grafico-circular.png" />
+                     </image>
+                  </ImageView>
+               </graphic></Tab>
+            <Tab text="Training Notebook">
+               <content>
+                  <VBox>
+                     <children>
+                        <HBox spacing="10.0">
+                           <VBox.margin>
+                              <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                           </VBox.margin>
+                           <children>
+                              <RadioButton fx:id="allFiles" mnemonicParsing="false" onAction="#allFilesSelected" text="All files" />
+                              <RadioButton fx:id="ThreeMonths" mnemonicParsing="false" onAction="#ThMonthsSelected" text="Last three months files" />
+                              <RadioButton fx:id="LastMonth" mnemonicParsing="false" onAction="#lastMonthSelected" text="Last month files" />
+                           </children>
+                        </HBox>
+                        <BarChart fx:id="notebookGraph" prefHeight="400.0" prefWidth="830.0">
+                          <xAxis>
+                            <CategoryAxis side="BOTTOM" />
+                          </xAxis>
+                          <yAxis>
+                            <NumberAxis side="LEFT" />
+                          </yAxis>
+                        </BarChart>
+                     </children>
+                  </VBox>
+               </content>
+               <graphic>
+                  <ImageView fitHeight="20.0" fitWidth="20.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../images/libreta-de-direcciones.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</VBox>

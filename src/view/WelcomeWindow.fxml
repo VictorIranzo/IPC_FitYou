@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox alignment="CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/8.0.72" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.WelcomeWindowController">
+   <children>
+      <HBox alignment="CENTER">
+         <children>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/fityou.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+      <Label style="-fx-border-color: black;" text="Welcome: &#10;To start, press &quot;Load&quot; and select one or more&#10;GPX files.&#10;&#10;Enjoy it!&#10;">
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+         <padding>
+            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+         </padding>
+      </Label>
+      <Label fx:id="loadedlabel" text="Loaded files:                                                         ">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin></Label>
+      <HBox alignment="CENTER" spacing="10.0">
+         <children>
+            <Button fx:id="loadButt" mnemonicParsing="false" onAction="#pressLoad" text="Load" />
+            <Button fx:id="contBut" mnemonicParsing="false" onAction="#pressContinue" text="Continue" />
+         </children>
+         <padding>
+            <Insets top="10.0" />
+         </padding>
+         <VBox.margin>
+            <Insets left="170.0" />
+         </VBox.margin>
+      </HBox>
+      <Label fx:id="statuslabel" text="Status">
+         <VBox.margin>
+            <Insets right="275.0" />
+         </VBox.margin></Label>
+   </children>
+   <padding>
+      <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+   </padding>
+</VBox>
